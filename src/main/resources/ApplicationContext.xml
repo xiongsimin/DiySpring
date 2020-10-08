@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <bean id="user" class="kim.aries.pojo.User">
+        <property name="id" value="1"></property>
+        <property name="name" value="xiongsm"></property>
+    </bean>
+</beans>
