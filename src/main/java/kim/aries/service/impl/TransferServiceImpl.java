@@ -16,7 +16,7 @@ public class TransferServiceImpl implements TransferService {
         //form-money
         transferDao.decreaseMoney(from, money);
         //error
-        int a=1/0;
+        int a = 1 / 0;
         //to+money
         transferDao.increaseMoney(to, money);
     }

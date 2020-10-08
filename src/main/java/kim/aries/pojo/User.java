@@ -1,11 +1,14 @@
 package kim.aries.pojo;
 
+import kim.aries.annotation.MyAnnotation;
+
 /**
  * @Author aries
  * @Data 2020-09-26
  */
 public class User {
     private Integer id;
+    @MyAnnotation
     private String name;
 
     public String getName() {

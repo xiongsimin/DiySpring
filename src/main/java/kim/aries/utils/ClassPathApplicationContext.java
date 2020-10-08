@@ -1,11 +1,13 @@
 package kim.aries.utils;
 
+import kim.aries.annotation.MyAnnotation;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.List;
@@ -30,6 +32,15 @@ public class ClassPathApplicationContext {
             Attribute beanId = e.attribute("id");
             Attribute clazz = e.attribute("class");
             Class<?> forName = Class.forName(clazz.getValue());
+            Field[] fields = forName.getDeclaredFields();
+            for (Field field : fields) {
+                Annotation[] annotations = field.getAnnotations();
+                for (Annotation annotation : annotations) {
+                    if (annotation.annotationType().equals(MyAnnotation.class)) {
+                        System.out.println("MyAnnotation");
+                    }
+                }
+            }
             //注：当类中没有无参构造器时，此处会报错
             Object newInstance = forName.newInstance();
             //初始化对象属性
